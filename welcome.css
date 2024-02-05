@@ -13,36 +13,35 @@ label {
   padding-bottom: 50px;
 }
 .istruzioni {
-    font-size:25px;
+  font-size: 25px;
   color: #c2128d;
-  padding-top:30px;
+  padding-top: 30px;
 }
-.primo{
-    font-family: 'Inter', sans-serif;
+.primo {
+  font-family: "Inter", sans-serif;
 }
-h1{
-    margin:0;
+h1 {
+  margin: 0;
 }
-h3{
-    margin:0;
+h3 {
+  margin: 0;
 }
-ul{
-    padding-left:30px;
+ul {
+  padding-left: 30px;
 }
 .titolo {
   font-size: 40px;
-
 }
-.titoli{
-    font-family: 'Outfit', sans-serif;
-    font-size:40px;
+.titoli {
+  font-family: "Outfit", sans-serif;
+  font-size: 40px;
 }
-.we{
-    padding-bottom:20px;
+.we {
+  padding-bottom: 20px;
 }
-li{
-    padding:5px;
+li {
+  padding: 5px;
 }
-.spunta{
-    padding-top:100px;
+.spunta {
+  padding-top: 100px;
 }

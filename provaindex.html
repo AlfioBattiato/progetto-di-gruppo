@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <title>Grafici Con la libreria D3 e SVG</title>
+    <!-- Carica d3.js & color scale -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  </head>
+  <body>
+    <!-- Crea il div dove il grafico verrà posto -->
+    <div id="grafico_donut"></div>
+    <script>
+      // imposta dimensioni e margini del grafico
+      var width = 450;
+      height = 450;
+      margin = 100;
+      // Il raggio del grafico a torta è metà della larghezza o metà dell'altezza (il più piccolo). Sottrai un po 'di margine.
+      var radius = Math.min(width, height) / 2 - margin;
+      // aggiunge l'oggetto svg al div chiamato 'grafico_donut'
+      var svg = d3
+        .select("#grafico_donut")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+      // Inseriamo i dati
+      var data = { USA: 7, Canada: 14 };
+      // imposta la scala dei colori
+      var color = d3.scaleOrdinal().domain(["USA", "Canada"]).range(d3.schemeDark2);
+      // Calcola la posizione di ogni gruppo sul grafico a torta:
+      var pie = d3
+        .pie()
+        .sort(null) // Non ordinare il gruppo per dimensione
+        .value(function (d) {
+          return d.value;
+        });
+      var data_ready = pie(d3.entries(data));
+      // Generatore di arco
+      var arc = d3
+        .arc()
+        .innerRadius(radius * 0.5) // Dimensioni del foro donut
+        .outerRadius(radius * 0.8);
+      // Quest'altro arco non verrà disegnato. Serve solo per il posizionamento delle etichette
+      var outerArc = d3
+        .arc()
+        .innerRadius(radius * 0.9)
+        .outerRadius(radius * 0.9);
+      // Costruisci il grafico a torta: ogni parte della torta è un percorso che costruiamo usando la funzione arco.
+      svg
+        .selectAll("allSlices")
+        .data(data_ready)
+        .enter()
+        .append("path")
+        .attr("d", arc)
+        .attr("fill", function (d) {
+          return color(d.data.key);
+        })
+        .attr("stroke", "white")
+        .style("stroke-width", "2px")
+        .style("opacity", 0.7);
+      // Aggiungi le polilinee tra il grafico e le etichette:
+
+      // Aggiungi le polilinee tra il grafico e le etichette:
+    </script>
+  </body>
+</html>

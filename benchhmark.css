@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap");
+* {
+  box-sizing: border-box;
+}
+h1 {
+  margin: 0px;
+}
+body {
+  background-image: url(./assets/bg.jpg);
+  background-size: cover;
+  padding: 2rem 5rem 5rem 5rem;
+  color: white;
+  font-family: "Outfit", sans-serif;
+}
+.logo {
+  max-width: 11rem;
+  max-height: 2rem;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.countdown {
+  border: 15px solid  ;
+  border-image: linear-gradient(to right, #886192 50%, #00ffff 50%);
+  border-image-slice: 1;
+  
+  border-radius: 50%;
+  text-align: center;
+  min-width: 8rem;
+  min-height: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.countdown p {
+  margin: 0px;
+  font-weight: 400;
+}
+.countdown p {
+  font-size: 8px;
+  vertical-align: start;
+}
+#number-coundown {
+  font-size: 38px;
+}
+main {
+  margin-block: 4rem;
+}
+main h1 {
+  text-align: center;
+  font-weight: 400;
+}
+.bolder {
+  font-weight: bolder;
+}
+.btn-container {
+  text-align: center;
+  padding-top: 4rem;
+}
+.btn-container button {
+  cursor: pointer;
+  min-width: 20rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.089);
+  color: white;
+  margin: 0.5rem;
+  border-radius: 25px;
+  -webkit-box-shadow: 0px -4px 2px 4px #ffffff;
+  box-shadow: 0px -5px 1px -3px #ffffff;
+}
+footer {
+  display: flex;
+  gap: 10px;
+  letter-spacing: 1px;
+  justify-content: center;
+}
+.off {
+  color: #b20088;
+}
+button:checked {
+  background-color: #00ffff;
+}

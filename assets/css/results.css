@@ -52,8 +52,8 @@ p {
   color: white;
 }
 .box2 {
-  width: 250px;
-  height: 260px;
+  width: 300px;
+  height: 300px;
   display: flex;
   justify-content: center;
 }

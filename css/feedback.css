@@ -48,6 +48,10 @@ input {
   padding-bottom: 0.7rem;
   padding-top: 1rem;
   font-family: "Inter", sans-serif;
+  color: white;
+}
+input[type="text"]:focus {
+  outline: none;
 }
 .container-btn {
   text-align: center;
@@ -79,7 +83,12 @@ button:hover {
 .container-stars {
   display: flex;
   justify-content: center;
+  gap: 0.9rem;
 }
-#star{color:hsl(233 60% 18% / 1);}
-#star:hover{color: #00FFFF;}
-
+#star {
+  color: hsl(233 60% 18% / 1);
+  cursor: pointer;
+}
+#star:hover {
+  color: #00ffff;
+}

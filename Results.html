@@ -5,25 +5,15 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&family=Outfit:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&family=Outfit:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&family=Outfit:wght@100;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <title>Results</title>
   </head>
   <body>
@@ -40,7 +30,7 @@
           <h2>Correct</h2>
         </div>
         <div class="box2">
-          <div class="grafico"><p></p></div>
+          <canvas id="grafico"></canvas>
         </div>
         <div class="box1">
           <h2>Wrong</h2>
@@ -50,5 +40,7 @@
         <button type="submit">RATE US</button>
       </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="./results.js"></script>
   </body>
 </html>

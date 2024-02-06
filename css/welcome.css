@@ -87,14 +87,14 @@ ul li {
   align-items: center;
   padding-top: 2rem;
 }
-.spunta{
+.spunta {
   display: flex;
   gap: 10px;
   justify-content: center;
   align-items: center;
 }
-a{
+a {
   text-decoration: none;
   color: #0b113bee;
-
 }
+

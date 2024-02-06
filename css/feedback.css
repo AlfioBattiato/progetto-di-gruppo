@@ -80,3 +80,6 @@ button:hover {
   display: flex;
   justify-content: center;
 }
+#star{color:hsl(233 60% 18% / 1);}
+#star:hover{color: #00FFFF;}
+

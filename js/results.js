@@ -3,7 +3,7 @@ const data = {
     {
       borderWidth: 0,
       label: "My First Dataset",
-      data: [60, 40],
+      data: [20, 80],
       backgroundColor: ["#00FFFF", "#C2128D"],
       hoverOffset: 10,
       weight: 2,

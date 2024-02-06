@@ -3,7 +3,7 @@
   box-sizing: 0;
 }
 body {
-  background-image: url(../assets/images/bg.jpg);
+  background-image: url(../assets/bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   color: rgba(255, 255, 255, 0.964);
@@ -26,10 +26,11 @@ svg {
   margin-top: -1.5rem;
   line-height: 1.4;
 }
-img {
-  width: 8rem;
-  padding-left: 5rem;
-  padding-top: 2rem;
+.logo {
+  max-width: 8rem;
+  max-height: 1.5rem;
+  margin-top: 2rem;
+  margin-left: 5rem;
 }
 
 #main-content {

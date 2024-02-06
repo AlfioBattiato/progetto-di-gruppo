@@ -1,4 +1,4 @@
-const checkbox = document.getElementById("myCheck");
+const checkbox = document.getElementById("checkbox");
 checkbox.addEventListener("change", validationCheck);
 const a = document.getElementById("a");
 console.log(a);
@@ -8,6 +8,6 @@ function validationCheck(e) {
   } else {
     a.setAttribute("href", "");
   }
-  
+
   console.log(a);
 }

@@ -7,15 +7,17 @@ h1 {
   margin: 0px;
 }
 body {
-  background-image: url(./assets/bg.jpg);
+  background-image: url(../assets/bg.jpg);
   background-size: cover;
   padding: 2rem 5rem 1rem 5rem;
   color: white;
   font-family: "Outfit", sans-serif;
+  margin: 0px;
 }
 .logo {
   max-width: 8rem;
   max-height: 1.5rem;
+  
 }
 header {
   display: flex;

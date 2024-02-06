@@ -3,11 +3,11 @@ const data = {
     {
       borderWidth: 0,
       label: "My First Dataset",
-      data: [5, 5],
+      data: [60, 40],
       backgroundColor: ["#00FFFF", "#C2128D"],
       hoverOffset: 10,
       weight: 2,
-      cutout: "68%",
+      cutout: "70%",
     },
   ],
 };

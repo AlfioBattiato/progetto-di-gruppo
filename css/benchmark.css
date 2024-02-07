@@ -3,9 +3,6 @@
 * {
   box-sizing: border-box;
 }
-h1 {
-  margin: 0px;
-}
 body {
   background-image: url(../assets/bg.jpg);
   background-size: cover;
@@ -65,10 +62,11 @@ header {
 }
 main {
   margin-block: 4rem;
+  text-align: center;
 }
 main h1 {
-  text-align: center;
   font-weight: 400;
+  font-size: 1.5rem;
 }
 .bolder {
   font-weight: bolder;
@@ -76,6 +74,8 @@ main h1 {
 .btn-container {
   text-align: center;
   padding-top: 4rem;
+  max-width:70% ;
+  margin: auto;
 }
 .btn-container button {
   border-inline: 2px solid rgba(255, 255, 255, 0.658);

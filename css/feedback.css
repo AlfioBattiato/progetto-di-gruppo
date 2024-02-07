@@ -50,7 +50,7 @@ input {
   font-family: "Inter", sans-serif;
   color: white;
 }
-input[type="text"]:focus {
+input:focus {
   outline: none;
 }
 .container-btn {
@@ -90,5 +90,12 @@ button:hover {
   cursor: pointer;
 }
 #star:hover {
+  color: #00ffff;
+}
+#star.isHover{
+ color: rgb(0 255 255 / 34%)
+
+}
+#star.acceso{
   color: #00ffff;
 }

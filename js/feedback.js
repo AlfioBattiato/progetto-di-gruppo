@@ -8,13 +8,15 @@ function creaStar() {
   }
 }
 creaStar();
-
+let starValore=0
 //funzione che cambia colore alle mie stelle se cliccate
 divStars = Array.from(divStars.children);
 
 divStars.forEach((el, index) => {
   //click
   el.onclick = function () {
+    starValore=index+1
+    console.log(starValore)
     divStars.forEach((child) => {
       child.classList.remove("acceso");
     });
@@ -43,3 +45,9 @@ divStars.forEach((el, index) => {
     }
   });
 });
+
+
+
+//salvare la p(XD)come variabile
+//alla base di questa variabile cioe al suo valore avremo bisogno di un qualcosa che ci cambia il colore della p
+

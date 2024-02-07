@@ -96,36 +96,51 @@ const questions = [
 
 let domanda = document.getElementsByClassName("bolder")[0];
 let divRisposte = document.getElementsByClassName("btn-container")[0];
-let indiceD = 0;
+let indiceD = 0; //variabile che serve per scalare man mano il mio array di oggetti
+let punteggioCorrette = 0;
+let punteggioSbagliate = 0;
 
 function createQuestion() {
+  let random = Math.floor(
+    Math.random() * questions[indiceD].incorrect_answers.length
+  ); //crea un numero casuale da usare come indice che andremo ad usare nella riga sotto
+
+  let arrayRisposte = questions[indiceD].incorrect_answers.toSpliced(
+    random,
+    0,
+    questions[indiceD].correct_answer
+  ); //creo un array di tutte le risposte con quella corretta messa casualmente prendendo il numero ramdom come indice dove inserirla
+
+  //   console.log(arrayRisposte);
   domanda.innerText = questions[indiceD].question;
 
   divRisposte.innerHTML = ""; // Pulisce il contenitore prima di aggiungere nuovi bottoni
 
-  for (let i = 0; i < questions[indiceD].incorrect_answers.length + 1; i++) {
+  for (let i = 0; i < arrayRisposte.length; i++) {
     let btn = document.createElement("button");
     divRisposte.appendChild(btn);
-
-    if (i === 0) {
-      btn.innerText = questions[indiceD].correct_answer;
-    } else {
-      btn.innerText = questions[indiceD].incorrect_answers[i - 1];
-    }
+    btn.innerText = arrayRisposte[i];
 
     btn.onclick = function () {
+        if(this.textContent===questions[indiceD].correct_answer){
+            punteggioCorrette++
+        }else{
+            punteggioSbagliate++
+        }
       // Passa alla prossima domanda se ce ne sono ancora
       if (indiceD < questions.length - 1) {
         indiceD++;
-        console.log(indiceD);
         createQuestion();
       } else {
         // Se non ci sono più domande, fai qualcosa qui, ad esempio visualizza un messaggio di fine gioco
         console.log("Fine del gioco");
+        console.log(punteggioSbagliate);
+        console.log(punteggioCorrette);
       }
     };
   }
 }
+
 
 createQuestion();
 

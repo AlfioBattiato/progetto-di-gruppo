@@ -100,8 +100,8 @@ footer {
 .off {
   color: #b20088;
 }
-button:checked {
-  background-color: #00ffff;
+button:hover{
+  background-color: #BA008B;
 }
 
 /********************************************* */

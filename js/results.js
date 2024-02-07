@@ -8,6 +8,7 @@ const data = {
       hoverOffset: 10,
       weight: 2,
       cutout: "70%",
+      hoverOffset: 0,
     },
   ],
 };

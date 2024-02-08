@@ -106,6 +106,7 @@ body {
 /************************marco page********************* */
 .result{
   display: none;
+  
 }
 .result h1 {
   font-family: "Outfit", sans-serif;
@@ -217,7 +218,7 @@ body {
 .box1 h2 {
   margin-bottom: 0px;
 }
-.rate {
+button[type=submit] a {
   color: white;
   text-decoration: none;
 }

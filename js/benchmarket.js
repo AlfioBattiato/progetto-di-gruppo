@@ -99,6 +99,7 @@ let divRisposte = document.getElementsByClassName("btn-container")[0];
 let indiceD = 0; //variabile che serve per scalare man mano il mio array di oggetti
 let punteggioCorrette = 0;
 let punteggioSbagliate = 0;
+let nPagina = document.getElementsByClassName("attuale")[0];
 
 function createQuestion() {
   let random = Math.floor(
@@ -122,6 +123,13 @@ function createQuestion() {
     btn.innerText = arrayRisposte[i];
 
     btn.onclick = function () {
+      if (nPagina.textContent === "9") {
+        nPagina.style.color = "#ba008b";
+        nPagina.textContent++;
+      } else {
+        nPagina.textContent++;
+      }
+
       n1 = 0;
       countdown = 0;
 
@@ -132,7 +140,6 @@ function createQuestion() {
       }
       // Passa alla prossima domanda se ce ne sono ancora
       if (indiceD < questions.length - 1) {
-        indiceD++;
         createQuestion();
       } else {
         // Se non ci sono più domande, fai qualcosa qui, ad esempio visualizza un messaggio di fine gioco
@@ -145,7 +152,7 @@ function createQuestion() {
             {
               borderWidth: 0,
               label: "My First Dataset",
-              data: [punteggioCorrette, punteggioSbagliate],
+              data: [punteggioSbagliate, punteggioCorrette],
               // data: [10, 90],
               backgroundColor: ["#00FFFF", "#C2128D"],
               hoverOffset: 10,
@@ -174,7 +181,7 @@ createQuestion();
 
 //funzione timer//////////////////////////////////////////////////////////////////////////////
 let timerRef;
-let countdown = 20;
+let countdown = 60;
 let step = 100 / countdown; //passo da fare il colore
 let n1 = 0;
 
@@ -187,16 +194,17 @@ function startTimer() {
     countdownNumberEl.textContent = countdown;
 
     // countdown = --countdown <= 0 ? (console.log(countdown), indiceD++,createQuestion(),restartTimer(),5) : (countdown);
-
-    if (countdown === 0) {
-      indiceD++; //mi permette di accedere all indice del nostro array di oggetti
-      createQuestion(); //creiamo le domande
-      restartTimer();
-      countdownNumberEl.textContent = 20;
-      countdown = 20;
+    if (indiceD < 9) {
+      if (countdown === 0) {
+        indiceD++; //mi permette di accedere all indice del nostro array di oggetti
+        createQuestion(); //creiamo le domande
+        restartTimer();
+        countdownNumberEl.textContent = 60;
+        countdown = 60;
+      }
+      n1 = n1 + step < 100 ? n1 + step : 0;
+      countdown--;
     }
-    n1 = n1 + step < 100 ? n1 + step : 0;
-    countdown--;
   }, 1000);
 }
 startTimer();
@@ -207,4 +215,5 @@ function restartTimer() {
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
-//js di marco
+
+// funzione che cambia le paginette in basso su benchmark

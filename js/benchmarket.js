@@ -97,6 +97,7 @@ const questions = [
 let domanda = document.getElementsByClassName("bolder")[0];
 let divRisposte = document.getElementsByClassName("btn-container")[0];
 let indiceD = 0; //variabile che serve per scalare man mano il mio array di oggetti
+
 let punteggioCorrette = 0;
 let punteggioSbagliate = 0;
 
@@ -150,14 +151,14 @@ function startTimer() {
   const circle = document.getElementsByClassName("circle")[0];
   const countdownNumberEl = document.getElementById("number-coundown");
 
-  let countdown = 16;
+  let countdown = 60;
   let step = 100 / countdown; //passo da fare il colore
   let n1 = 0;
   timerRef = setInterval(function () {
     circle.style.background = `conic-gradient(#00ffff ${n1}%,  #886192 ${0}%) border-box`;
     countdownNumberEl.textContent = countdown;
 
-    countdown = --countdown <= 0 ? 16 : countdown;
+    countdown = --countdown <= 0 ? 60 : countdown;
     n1 = n1 + step < 100 ? n1 + step : 0;
   }, 1000);
 }

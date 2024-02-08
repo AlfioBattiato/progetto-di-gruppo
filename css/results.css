@@ -9,7 +9,7 @@ body {
   margin-top: 2rem;
   margin-left: 5rem;
 }
-h1 {
+.result h1 {
   font-family: "Outfit", sans-serif;
   text-align: center;
   color: white;
@@ -17,13 +17,13 @@ h1 {
   margin-bottom: 3px;
   font-weight: 600;
 }
-h2 {
+.result h2 {
   font-family: "Inter", sans-serif;
 
   font-size: 40px;
   font-weight: 200;
 }
-p {
+.result p {
   font-family: "Inter", sans-serif;
   font-weight: 300;
   font-size: 15px;
@@ -68,7 +68,7 @@ p {
   transform: translate(-50%, -50%);
   color: white;
 }
-span {
+.result span {
   font-family: "Outfit", sans-serif;
   position: absolute;
   text-align: center;
@@ -79,7 +79,7 @@ span {
   transform: translate(-40%, -50%);
   color: #00ffff;
 }
-article {
+.result article {
   font-family: "Inter", sans-serif;
   position: absolute;
   text-align: center;
@@ -96,7 +96,7 @@ article {
   text-align: center;
   padding-top: 30px;
 }
-button {
+.result button {
   color: white;
   width: 180px;
   height: 50px;
@@ -118,4 +118,8 @@ button {
 }
 .box1 h2 {
   margin-bottom: 0px;
+}
+.rate {
+  color: white;
+  text-decoration: none;
 }

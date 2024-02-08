@@ -15,9 +15,8 @@ body {
   max-height: 1.5rem;
   margin-top: 2rem;
   margin-left: 5rem;
-  
 }
-header {
+.benchmark header {
   display: flex;
   justify-content: space-between;
 }
@@ -28,13 +27,11 @@ header {
   position: relative;
   margin-top: 2rem;
   margin-right: 5rem;
-
 }
-.circle{
+.circle {
   content: "";
-  background: conic-gradient( #886192 50%, #00ffff 20%) border-box;
-  -webkit-mask: /*4*/ conic-gradient(#fff 0 0) padding-box,
-  conic-gradient(#fff 0 0);
+  background: conic-gradient(#886192 50%, #00ffff 20%) border-box;
+  -webkit-mask: /*4*/ conic-gradient(#fff 0 0) padding-box, conic-gradient(#fff 0 0);
   -webkit-mask-composite: xor; /*5'*/
   mask-composite: exclude; /*5*/
   border: 10px solid transparent;
@@ -44,9 +41,8 @@ header {
   position: absolute;
   top: 0px;
   left: 0px;
-
 }
-.timer{
+.timer {
   text-align: center;
   height: 100%;
   display: flex;
@@ -63,11 +59,11 @@ header {
 #number-coundown {
   font-size: 28px;
 }
-main {
+.benchmark main {
   margin-block: 4rem;
   text-align: center;
 }
-main h1 {
+.benchmark main h1 {
   font-weight: 400;
   font-size: 1.5rem;
 }
@@ -77,7 +73,7 @@ main h1 {
 .btn-container {
   text-align: center;
   padding-top: 4rem;
-  max-width:70% ;
+  max-width: 70%;
   margin: auto;
 }
 .btn-container button {
@@ -103,8 +99,8 @@ main h1 {
 .off {
   color: #b20088;
 }
-button:hover{
-  background-color: #BA008B;
+.benchmark button:hover {
+  background-color: #ba008b;
 }
 
 /********************************************* */

@@ -179,14 +179,16 @@ function startTimer() {
   const circle = document.getElementsByClassName("circle")[0];
   const countdownNumberEl = document.getElementById("number-coundown");
   
+  
   let countdown = 5;
   let step = 100 / countdown; //passo da fare il colore
   let n1 = 0;
+
   timerRef = setInterval(function () {
     circle.style.background = `conic-gradient(#00ffff ${n1}%,  #886192 ${0}%) border-box`;
-    countdownNumberEl.textContent = countdown;
+    countdownNumberEl.textContent = countdown,
     
-    countdown = --countdown <= 0 ? (indiceD++,createQuestion(),restartTimer(),5) : countdown;
+    countdown = --countdown <= 0 ? (indiceD++,createQuestion(),restartTimer(),5) : (countdown);
     n1 = n1 + step < 100 ? n1 + step : 0;
   }, 1000);
 }

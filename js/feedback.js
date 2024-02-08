@@ -21,17 +21,19 @@ divStars.forEach((el, index) => {
     console.log(starValore);
     divStars.forEach((child) => {
       child.classList.remove("acceso");
+
+      //aggiunta della faccina
       if (starValore <= 4) {
-        console.log("pessimo");
-        (img.src = "../assets/male.png"), (widht = "40"), (height = "40");
+        // console.log("pessimo");
+        img.src = "../assets/faces/sad-svgrepo-com.svg";
         divEmo.appendChild(img);
       } else if (starValore > 4 && starValore < 8) {
-        console.log("buono");
-        img.src = "../assets/buono.png";
+        // console.log("buono");
+        img.src = "../assets/faces/straight-svgrepo-com.svg";
         divEmo.appendChild(img);
       } else if (starValore >= 8) {
-        console.log("ottimo");
-        img.src = "../assets/ottimo.png";
+        // console.log("ottimo");
+        img.src = "../assets/faces/smile-svgrepo-com.svg";
         divEmo.appendChild(img);
       }
     });

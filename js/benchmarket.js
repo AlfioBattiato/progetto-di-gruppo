@@ -134,8 +134,11 @@ function createQuestion() {
       countdown = 0;
 
       if (this.textContent === questions[indiceD].correct_answer) {
+        window.alert("Risposta Esatta Continua Cosi 💪")
         punteggioCorrette++;
       } else {
+        window.alert(`"Puoi fare di meglio Ragazzo!😒"
+        "la risposta corretta è : "${questions[indiceD].correct_answer}`)
         punteggioSbagliate++;
       }
       // Passa alla prossima domanda se ce ne sono ancora
@@ -147,6 +150,7 @@ function createQuestion() {
         const alfio = document.getElementsByClassName("benchmark")[0];
         marco.style.display = "block";
         alfio.style.display = "none";
+        //questo è per gestire il grafico del result
         const data = {
           datasets: [
             {
@@ -154,7 +158,7 @@ function createQuestion() {
               label: "My First Dataset",
               data: [punteggioSbagliate, punteggioCorrette],
               // data: [10, 90],
-              backgroundColor: ["#00FFFF", "#C2128D"],
+              backgroundColor: ["#C2128D", "#00FFFF"],
               hoverOffset: 10,
               weight: 2,
               cutout: "70%",
@@ -165,13 +169,15 @@ function createQuestion() {
         const prova = document.getElementById("grafico");
         new Chart(prova, {
           type: "doughnut",
-
           data: data,
         });
 
-        console.log("Fine del gioco");
-        console.log(punteggioSbagliate);
-        console.log(punteggioCorrette);
+        // console.log("Fine del gioco");
+        //funzionalità per cambiare le scritte della pagina result
+        const positivo = document.getElementById("risultatoPositivo");
+        const negativo = document.getElementById("risultatoNegativo");
+        negativo.textContent = punteggioSbagliate * 10 + "%";
+        positivo.textContent = punteggioCorrette * 10 + "%";
       }
     };
   }
@@ -217,3 +223,4 @@ function restartTimer() {
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 // funzione che cambia le paginette in basso su benchmark
+//            <h1 id="risultatoNegativo">40%</h1>

@@ -222,3 +222,12 @@ button[type=submit] a {
   color: white;
   text-decoration: none;
 }
+button[type=submit] a:hover {
+  color: #00ffff;
+ 
+}
+
+button[type=submit]:hover{
+  border-color: #00ffff;
+  color: #00ffff;
+}

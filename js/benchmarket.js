@@ -88,7 +88,7 @@ const questions = [
     type: "multiple",
     difficulty: "easy",
     question:
-    "Which programming language shares its name with an island in Indonesia?",
+      "Which programming language shares its name with an island in Indonesia?",
     correct_answer: "Java",
     incorrect_answers: ["Python0", "C1", "Jakarta2"],
   },
@@ -100,45 +100,46 @@ let indiceD = 0; //variabile che serve per scalare man mano il mio array di ogge
 let punteggioCorrette = 0;
 let punteggioSbagliate = 0;
 
-
 function createQuestion() {
   let random = Math.floor(
     Math.random() * questions[indiceD].incorrect_answers.length
-    ); //crea un numero casuale da usare come indice che andremo ad usare nella riga sotto
-    
-    let arrayRisposte = questions[indiceD].incorrect_answers.toSpliced(
-      random,
-      0,
-      questions[indiceD].correct_answer
-      ); //creo un array di tutte le risposte con quella corretta messa casualmente prendendo il numero ramdom come indice dove inserirla
-      
-      //   console.log(arrayRisposte);
-      domanda.innerText = questions[indiceD].question;
-      
-      divRisposte.innerHTML = ""; // Pulisce il contenitore prima di aggiungere nuovi bottoni
-      
-      for (let i = 0; i < arrayRisposte.length; i++) {
-        let btn = document.createElement("button");
-        divRisposte.appendChild(btn);
-        btn.innerText = arrayRisposte[i];
-        
-        btn.onclick = function () {
-          restartTimer()
-          if(this.textContent===questions[indiceD].correct_answer){
-            punteggioCorrette++
-          }else{
-            punteggioSbagliate++
-        }
+  ); //crea un numero casuale da usare come indice che andremo ad usare nella riga sotto
+
+  let arrayRisposte = questions[indiceD].incorrect_answers.toSpliced(
+    random,
+    0,
+    questions[indiceD].correct_answer
+  ); //creo un array di tutte le risposte con quella corretta messa casualmente prendendo il numero ramdom come indice dove inserirla
+
+  //   console.log(arrayRisposte);
+  domanda.innerText = questions[indiceD].question;
+
+  divRisposte.innerHTML = ""; // Pulisce il contenitore prima di aggiungere nuovi bottoni
+
+  for (let i = 0; i < arrayRisposte.length; i++) {
+    let btn = document.createElement("button");
+    divRisposte.appendChild(btn);
+    btn.innerText = arrayRisposte[i];
+
+    btn.onclick = function () {
+      n1 = 0;
+      countdown = 0;
+
+      if (this.textContent === questions[indiceD].correct_answer) {
+        punteggioCorrette++;
+      } else {
+        punteggioSbagliate++;
+      }
       // Passa alla prossima domanda se ce ne sono ancora
       if (indiceD < questions.length - 1) {
         indiceD++;
         createQuestion();
       } else {
         // Se non ci sono più domande, fai qualcosa qui, ad esempio visualizza un messaggio di fine gioco
-        const marco=document.getElementsByClassName("result")[0];
-        const alfio=document.getElementsByClassName("benchmark")[0];
-        marco.style.display="block"
-        alfio.style.display="none"
+        const marco = document.getElementsByClassName("result")[0];
+        const alfio = document.getElementsByClassName("benchmark")[0];
+        marco.style.display = "block";
+        alfio.style.display = "none";
         const data = {
           datasets: [
             {
@@ -157,11 +158,10 @@ function createQuestion() {
         const prova = document.getElementById("grafico");
         new Chart(prova, {
           type: "doughnut",
-        
+
           data: data,
         });
-        
-        
+
         console.log("Fine del gioco");
         console.log(punteggioSbagliate);
         console.log(punteggioCorrette);
@@ -170,26 +170,33 @@ function createQuestion() {
   }
 }
 
-
 createQuestion();
 
 //funzione timer//////////////////////////////////////////////////////////////////////////////
 let timerRef;
-function startTimer() {
-  const circle = document.getElementsByClassName("circle")[0];
-  const countdownNumberEl = document.getElementById("number-coundown");
-  
-  
-  let countdown = 5;
-  let step = 100 / countdown; //passo da fare il colore
-  let n1 = 0;
+let countdown = 20;
+let step = 100 / countdown; //passo da fare il colore
+let n1 = 0;
 
+const countdownNumberEl = document.getElementById("number-coundown");
+const circle = document.getElementsByClassName("circle")[0];
+
+function startTimer() {
   timerRef = setInterval(function () {
     circle.style.background = `conic-gradient(#00ffff ${n1}%,  #886192 ${0}%) border-box`;
-    countdownNumberEl.textContent = countdown,
-    
-    countdown = --countdown <= 0 ? (indiceD++,createQuestion(),restartTimer(),5) : (countdown);
+    countdownNumberEl.textContent = countdown;
+
+    // countdown = --countdown <= 0 ? (console.log(countdown), indiceD++,createQuestion(),restartTimer(),5) : (countdown);
+
+    if (countdown === 0) {
+      indiceD++; //mi permette di accedere all indice del nostro array di oggetti
+      createQuestion(); //creiamo le domande
+      restartTimer();
+      countdownNumberEl.textContent = 20;
+      countdown = 20;
+    }
     n1 = n1 + step < 100 ? n1 + step : 0;
+    countdown--;
   }, 1000);
 }
 startTimer();

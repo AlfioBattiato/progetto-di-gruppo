@@ -11,7 +11,8 @@ creaStar();
 let starValore = 0;
 //funzione che cambia colore alle mie stelle se cliccate
 divStars = Array.from(divStars.children);
-let divEmo = document.getElementsByClassName("svgContainer")[0];
+let divEmo = document.getElementById("svgContainer");
+const img = document.createElement("img");
 
 divStars.forEach((el, index) => {
   //click
@@ -22,10 +23,16 @@ divStars.forEach((el, index) => {
       child.classList.remove("acceso");
       if (starValore <= 4) {
         console.log("pessimo");
+        (img.src = "../assets/male.png"), (widht = "40"), (height = "40");
+        divEmo.appendChild(img);
       } else if (starValore > 4 && starValore < 8) {
         console.log("buono");
+        img.src = "../assets/buono.png";
+        divEmo.appendChild(img);
       } else if (starValore >= 8) {
         console.log("ottimo");
+        img.src = "../assets/ottimo.png";
+        divEmo.appendChild(img);
       }
     });
 
@@ -54,5 +61,11 @@ divStars.forEach((el, index) => {
   });
 });
 
-//salvare la p(XD)come variabile
-//alla base di questa variabile cioe al suo valore avremo bisogno di un qualcosa che ci cambia il colore della p
+/* function aggiungiImmagine(src, width, height) {
+  img.src = "../assets/emojii.svg";
+  const svgContainer = document.getElementById("svgContainer");
+  svgContainer.appendChild(img);
+}
+console.log(img);
+aggiungiImmagine("../assets/emojii.svg", 40, 40);
+ */

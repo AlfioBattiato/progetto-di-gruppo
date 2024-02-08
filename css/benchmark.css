@@ -30,7 +30,7 @@ body {
 }
 .circle {
   content: "";
-  background: conic-gradient(#886192 50%, #00ffff 20%) border-box;
+  background: conic-gradient(#886192 100%, #00ffff 0%) border-box;
   -webkit-mask: /*4*/ conic-gradient(#fff 0 0) padding-box, conic-gradient(#fff 0 0);
   -webkit-mask-composite: xor; /*5'*/
   mask-composite: exclude; /*5*/

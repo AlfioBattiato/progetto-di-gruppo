@@ -5,11 +5,7 @@ const questions = [
     difficulty: "easy",
     question: "What does CPU stand for?",
     correct_answer: "Central Processing Unit",
-    incorrect_answers: [
-      "Central Process Unit",
-      "Computer Personal Unit",
-      "Central Processor Unit",
-    ],
+    incorrect_answers: ["Central Process Unit", "Computer Personal Unit", "Central Processor Unit"],
   },
   {
     category: "Science: Computers",
@@ -32,8 +28,7 @@ const questions = [
     category: "Science: Computers",
     type: "boolean",
     difficulty: "easy",
-    question:
-      "Pointers were not used in the original C programming language; they were added later on in C++.",
+    question: "Pointers were not used in the original C programming language; they were added later on in C++.",
     correct_answer: "False",
     incorrect_answers: ["True"],
   },
@@ -41,8 +36,7 @@ const questions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question:
-      "What is the most preferred image format used for logos in the Wikimedia database?",
+    question: "What is the most preferred image format used for logos in the Wikimedia database?",
     correct_answer: ".svg",
     incorrect_answers: [".png", ".jpeg", ".gif"],
   },
@@ -52,18 +46,13 @@ const questions = [
     difficulty: "easy",
     question: "In web design, what does CSS stand for?",
     correct_answer: "Cascading Style Sheet",
-    incorrect_answers: [
-      "Counter Strike: Source",
-      "Corrective Style Sheet",
-      "Computer Style Sheet",
-    ],
+    incorrect_answers: ["Counter Strike: Source", "Corrective Style Sheet", "Computer Style Sheet"],
   },
   {
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question:
-      "What is the code name for the mobile operating system Android 7.0?",
+    question: "What is the code name for the mobile operating system Android 7.0?",
     correct_answer: "Nougat",
     incorrect_answers: ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
   },
@@ -87,8 +76,7 @@ const questions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question:
-      "Which programming language shares its name with an island in Indonesia?",
+    question: "Which programming language shares its name with an island in Indonesia?",
     correct_answer: "Java",
     incorrect_answers: ["Python0", "C1", "Jakarta2"],
   },
@@ -102,15 +90,9 @@ let punteggioSbagliate = 0;
 let nPagina = document.getElementsByClassName("attuale")[0];
 
 function createQuestion() {
-  let random = Math.floor(
-    Math.random() * questions[indiceD].incorrect_answers.length
-  ); //crea un numero casuale da usare come indice che andremo ad usare nella riga sotto
+  let random = Math.floor(Math.random() * questions[indiceD].incorrect_answers.length); //crea un numero casuale da usare come indice che andremo ad usare nella riga sotto
 
-  let arrayRisposte = questions[indiceD].incorrect_answers.toSpliced(
-    random,
-    0,
-    questions[indiceD].correct_answer
-  ); //creo un array di tutte le risposte con quella corretta messa casualmente prendendo il numero ramdom come indice dove inserirla
+  let arrayRisposte = questions[indiceD].incorrect_answers.toSpliced(random, 0, questions[indiceD].correct_answer); //creo un array di tutte le risposte con quella corretta messa casualmente prendendo il numero ramdom come indice dove inserirla
 
   //   console.log(arrayRisposte);
   domanda.innerText = questions[indiceD].question;
@@ -134,11 +116,11 @@ function createQuestion() {
       countdown = 0;
 
       if (this.textContent === questions[indiceD].correct_answer) {
-        window.alert("Risposta Esatta Continua Cosi 💪")
+        /*  window.alert("Risposta Esatta Continua Cosi 💪") */
         punteggioCorrette++;
       } else {
-        window.alert(`"Puoi fare di meglio Ragazzo!😒"
-        "la risposta corretta è : "${questions[indiceD].correct_answer}`)
+        /* window.alert(`"Puoi fare di meglio Ragazzo!😒"
+        "la risposta corretta è : "${questions[indiceD].correct_answer}`) */
         punteggioSbagliate++;
       }
       // Passa alla prossima domanda se ce ne sono ancora
@@ -224,3 +206,18 @@ function restartTimer() {
 
 // funzione che cambia le paginette in basso su benchmark
 //            <h1 id="risultatoNegativo">40%</h1>
+// cambiamento testo in base al risultato ottenuto
+const messaggio = document.getElementById("esito");
+const scuse = document.getElementById("scuse");
+const articolo = document.getElementById("article");
+
+/* if (punteggioCorrette > punteggioSbagliate) {
+  messaggio.textContent = "You passed the exam";
+  scuse.textContent = "Congratulation";
+  articolo.textContent =
+    " We'll send you the certificate in few minutes. Check yout email (including promotions / spam folder)";
+} else {
+  messaggio.textContent = "You failed the exam";
+  scuse.textContent = "I'm sorry but";
+  articolo.textContent = "I'm sorry, but you need a bit more study.";
+} */

@@ -104,9 +104,8 @@ body {
 }
 
 /************************marco page********************* */
-.result{
+.result {
   display: none;
-  
 }
 .result h1 {
   font-family: "Outfit", sans-serif;
@@ -218,16 +217,15 @@ body {
 .box1 h2 {
   margin-bottom: 0px;
 }
-button[type=submit] a {
+button[type="submit"] a {
   color: white;
   text-decoration: none;
 }
-button[type=submit] a:hover {
+button[type="submit"] a:hover {
   color: #00ffff;
- 
 }
 
-button[type=submit]:hover{
+button[type="submit"]:hover {
   border-color: #00ffff;
   color: #00ffff;
 }

@@ -167,7 +167,10 @@ a {
   transform: rotate(45deg);
   border: none;
 }
-
+.btn {
+  margin-top: 70px;
+  maargin left: 40px;
+}
 @keyframes pulse {
   0%,
   100% {

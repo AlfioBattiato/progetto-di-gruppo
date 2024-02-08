@@ -94,7 +94,7 @@ main h1 {
   /* box-shadow: 0px -1px 1px 1px #FFFFFF; */
 }
 
-footer {
+.benchmark footer {
   display: flex;
   gap: 10px;
   letter-spacing: 1px;

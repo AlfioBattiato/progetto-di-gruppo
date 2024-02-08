@@ -6,7 +6,6 @@
 body {
   background-image: url(../assets/bg.jpg);
   background-size: cover;
-  padding: 2rem 5rem 1rem 5rem;
   color: white;
   font-family: "Outfit", sans-serif;
   margin: 0px;
@@ -14,6 +13,8 @@ body {
 .logo {
   max-width: 8rem;
   max-height: 1.5rem;
+  margin-top: 2rem;
+  margin-left: 5rem;
   
 }
 header {
@@ -25,6 +26,8 @@ header {
   width: 5rem;
   height: 5rem;
   position: relative;
+  margin-top: 2rem;
+  margin-right: 5rem;
 
 }
 .circle{

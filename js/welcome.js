@@ -9,7 +9,8 @@ function validationCheck(e) {
     a.setAttribute("href", "../html/benchmark.html");
     button.style.opacity = "1";
   } else {
-    a.setAttribute("href", "#");
+    a.setAttribute("href", "#"); 
+    
     button.style.opacity = "0.5";
   }
 }

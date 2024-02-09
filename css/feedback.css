@@ -37,7 +37,7 @@ svg {
 }
 
 input {
-  width: 40rem;
+  width: 38rem;
   font-size: 15px;
   background-color: transparent;
   border-top: none;
@@ -116,7 +116,11 @@ button a {
   justify-content: center;
   align-items: center;
 }
-
+.finalArea {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.845);
+}
 #prompt-form {
   display: inline-block;
   padding: 5px 5px 5px 70px;

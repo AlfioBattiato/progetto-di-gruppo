@@ -26,6 +26,7 @@ divStars.forEach((el, index) => {
       if (starValore <= 4) {
         // console.log("pessimo");
         img.src = "../assets/faces/sad-svgrepo-com.svg";
+
         divEmo.appendChild(img);
       } else if (starValore > 4 && starValore < 8) {
         // console.log("buono");
@@ -62,12 +63,34 @@ divStars.forEach((el, index) => {
     }
   });
 });
+const terzo = document.getElementsByClassName("first-p")[0];
+const stelle = document.getElementsByClassName("central")[0];
+const secondo = document.getElementById("primo");
+const invia = document.getElementById("btn");
+const commento = document.getElementsByClassName("leave")[0];
+const inputComment = document.getElementById("commentoUtente");
+const parteSottostante = document.getElementById("finalArea");
 
-/* function aggiungiImmagine(src, width, height) {
-  img.src = "../assets/emojii.svg";
-  const svgContainer = document.getElementById("svgContainer");
-  svgContainer.appendChild(img);
-}
-console.log(img);
-aggiungiImmagine("../assets/emojii.svg", 40, 40);
+invia.addEventListener("click", function () {
+  secondo.innerHTML = "Thank you for your review!";
+  secondo.style.marginTop = "40px";
+  terzo.innerHTML = "Ci hai assegnato " + " " + starValore + " " + "stelle su 10";
+  terzo.style.marginTop = "35px";
+  terzo.style.color = "#00ffff";
+
+  stelle.innerHTML = " ";
+  commento.innerHTML = "La tua recensione è:" + " " + inputComment.value;
+  parteSottostante.innerHTML = "Grazie e alla prossima sempre con epicode ❤️";
+  parteSottostante.style.fontFamily = "Inter, sans-serif";
+  parteSottostante.style.color = "white";
+  parteSottostante.style.marginTop = "200px";
+});
+
+/* const startDiff = document.getElementById("btn");
+const difficolta = document.getElementsByClassName("difficolta")[0];
+const alfio = document.getElementsByClassName("benchmark")[0];
+startDiff.addEventListener("click", function () {
+  difficolta.style.display = "none";
+  alfio.style.display = "block";
+});
  */

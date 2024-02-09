@@ -233,3 +233,116 @@ button[type="submit"]:hover {
   border-color: #00ffff;
   color: #00ffff;
 }
+
+/* PAGINA SCELTA LIVELLO DI DIFFICOLTà */
+
+.titoloSetup {
+  text-align: center;
+  font-family: "Outfit", sans-serif;
+  font-size: 42px;
+}
+.par {
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 21px;
+  color: rgba(255, 255, 255, 0.845);
+  padding-top: 1rem;
+}
+.radio-difficult {
+  padding-top: 1.2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.radio-number {
+  padding-top: 1.2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.container-btn {
+  text-align: center;
+  padding-top: 3.8rem;
+}
+button {
+  background-color: #00ffff;
+  padding: 0.8rem;
+  font-family: "Inter", sans-serif;
+  font-size: large;
+  color: #0b113bee;
+  font-weight: 900;
+  cursor: pointer;
+  width: 12rem;
+  box-shadow: -0px 2px 10px 9px #00ffff57;
+  border: none;
+  border-radius: 1px;
+}
+button:hover {
+  background-color: #00eeff;
+}
+.easy {
+  width: 8rem;
+  text-align: center;
+  border: 2px solid #c2128d;
+  padding: 0.2rem;
+}
+.easy:hover {
+  color: rgb(83, 218, 83);
+  cursor: pointer;
+}
+.medium {
+  width: 8rem;
+  text-align: center;
+  border: 2px solid #c2128d;
+  padding: 0.2rem;
+}
+.medium:hover {
+  color: rgb(244, 244, 60);
+  cursor: pointer;
+}
+.difficult {
+  width: 8rem;
+  text-align: center;
+  border: 2px solid #c2128d;
+  padding: 0.2rem;
+}
+.difficult:hover {
+  color: rgb(253, 25, 25);
+  cursor: pointer;
+}
+.ten {
+  width: 8rem;
+  text-align: center;
+  border: 2px solid #c2128d;
+  padding: 0.2rem;
+}
+.twenty {
+  width: 8rem;
+  text-align: center;
+  border: 2px solid #c2128d;
+  padding: 0.2rem;
+}
+.thirty {
+  width: 8rem;
+  text-align: center;
+  border: 2px solid #c2128d;
+  padding: 0.2rem;
+}
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 0%;
+  border: 2px solid #c2128d;
+}
+[type="radio"]:checked::before {
+  content: "";
+  display: block;
+  width: 17px;
+  height: 17px;
+  background-color: #c2128dee; /* colore del pallino selezionato */
+  border-radius: 0%;
+}

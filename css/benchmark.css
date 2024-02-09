@@ -17,10 +17,10 @@ body {
   margin-left: 5rem;
 }
 /* /////////////////////////////////////////// */
-.benchmark{
+.benchmark {
   display: block;
 }
-.benchmark>:first-child{
+.benchmark > :first-child {
   display: flex;
   justify-content: end;
 }
@@ -72,7 +72,6 @@ body {
   margin: auto;
   text-align: center;
   font-size: 1.5rem;
-
 }
 .btn-container {
   text-align: center;
@@ -265,7 +264,7 @@ button[type="submit"]:hover {
   text-align: center;
   padding-top: 3.8rem;
 }
-button {
+.difficolta button {
   background-color: #00ffff;
   padding: 0.8rem;
   font-family: "Inter", sans-serif;
@@ -344,5 +343,5 @@ input[type="radio"] {
   width: 17px;
   height: 17px;
   background-color: #c2128dee; /* colore del pallino selezionato */
-  /* border-radius: 0%;
+/* border-radius: 0%;
 } */

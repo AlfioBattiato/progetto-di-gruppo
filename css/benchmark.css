@@ -16,6 +16,10 @@ body {
   margin-top: 2rem;
   margin-left: 5rem;
 }
+/* /////////////////////////////////////////// */
+.benchmark{
+  display: none;
+}
 .benchmark header {
   display: flex;
   justify-content: space-between;

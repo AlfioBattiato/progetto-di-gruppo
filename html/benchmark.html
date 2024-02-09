@@ -16,15 +16,39 @@
   </head>
   <body>
     <img class="logo" src="../assets/epicode_logo.png" alt="logo" />
-<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////// -->
     <div class="difficolta">
+      <h1 class="titoloSetup">Set-up your exam</h1>
+      <p class="par">Choose the difficulty level for your EPICODE test</p>
 
+      <div class="radio-difficult">
+        <input type="radio" id="difEasy" name="level" value="easy" />
+        <label class="easy" for="difEasy">EASY</label>
+        <input type="radio" id="difMedium" name="level" value="medium" />
+        <label class="medium" for="difMedium">MEDIUM</label>
+        <input type="radio" id="difHard" name="level" value="difficult" />
+        <label class="difficult" for="difHard">DIFFICULT</label>
+      </div>
+
+      <p class="par">Number of questions</p>
+
+      <div class="radio-number">
+        <input type="radio" id="10" name="num" value="10" />
+        <label class="ten" for="10">10</label>
+        <input type="radio" id="20" name="num" value="20" />
+        <label class="twenty" for="20">20</label>
+        <input type="radio" id="30" name="num" value="30" />
+        <label class="thirty" for="30">30</label>
+      </div>
+
+      <div class="container-btn">
+        <button id="btn">START</button>
+      </div>
     </div>
 
     <!-- ****************************************************************************** -->
     <div class="benchmark">
       <header>
-
         <div class="countdown">
           <div class="timer">
             <p>SECONDS</p>

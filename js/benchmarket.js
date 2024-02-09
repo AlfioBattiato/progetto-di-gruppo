@@ -107,14 +107,11 @@ function createQuestion() {
   let random = Math.floor(
     Math.random() * questions[indiceD].incorrect_answers.length
   ); //crea un numero casuale da usare come indice che andremo ad usare nella riga sotto
-
   let arrayRisposte = questions[indiceD].incorrect_answers.toSpliced(
     random,
     0,
     questions[indiceD].correct_answer
   ); //creo un array di tutte le risposte con quella corretta messa casualmente prendendo il numero ramdom come indice dove inserirla
-
-  //   console.log(arrayRisposte);
   divRisposte.innerHTML = ""; // Pulisce il contenitore prima di aggiungere nuovi bottoni
 
   for (let i = 0; i < arrayRisposte.length; i++) {
@@ -124,29 +121,31 @@ function createQuestion() {
     btn.innerText = arrayRisposte[i];
 
     btn.onclick = function () {
-      indiceD++;
-      restartTimer();
-
       // Passa alla prossima domanda se ce ne sono ancora
-      if (indiceD < questions.length) {
+      if (indiceD < questions.length-1) {
         if (this.textContent === questions[indiceD].correct_answer) {
           punteggioCorrette++;
         } else {
           punteggioSbagliate++;
         }
+        indiceD++;
+        restartTimer();
         setTimeout(() => {
           createQuestion();
           numeroPagina();
         }, 1000);
       } else {
+        if (this.textContent === questions[indiceD].correct_answer) {
+          punteggioCorrette++;
+        } else {
+          punteggioSbagliate++;
+        }
         // Se non ci sono più domande, fai qualcosa qui, ad esempio visualizza un messaggio di fine gioco
         sbloccaResultPage();
       }
     };
   }
 }
-
-createQuestion();
 
 //funzione timer//////////////////////////////////////////////////////////////////////////////
 let timerRef;
@@ -180,7 +179,6 @@ function startTimer() {
     countdown--;
   }, 1000);
 }
-startTimer();
 
 function restartTimer() {
   countdown = 60;
@@ -229,7 +227,6 @@ function sbloccaResultPage() {
   const articolo = document.getElementById("article");
 
   if (punteggioCorrette > 5) {
-    console.log(punteggioCorrette);
     messaggio.textContent = "You passed the exam";
     scuse.textContent = "Congratulation";
     articolo.textContent =
@@ -255,6 +252,8 @@ function numeroPagina() {
 const startDiff = document.getElementById("btn");
 const difficolta = document.getElementsByClassName("difficolta")[0];
 startDiff.addEventListener("click", function () {
+  createQuestion();
+  startTimer();
   difficolta.style.display = "none";
   alfio.style.display = "block";
 });
@@ -281,8 +280,6 @@ let arrayRadioDifficult = [radioEasy, radioMedium, radioHard];
 let arrayLabelDifficult = [labelEasy, labelMedium, labelHard];
 let arrayRadioN = [radioN10, radioN20, radioN30];
 let arrayLabelN = [dieci, venti, trenta];
-
-
 
 function pulisciColore(valore) {
   valore.forEach((e) => {

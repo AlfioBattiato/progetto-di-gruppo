@@ -148,7 +148,7 @@ createQuestion();
 
 //funzione timer//////////////////////////////////////////////////////////////////////////////
 let timerRef;
-let countdown = 5;
+let countdown = 60;
 let step = 100 / countdown; //passo da fare il colore
 let n1 = 0;
 
@@ -181,8 +181,7 @@ function startTimer() {
 startTimer();
 
 function restartTimer() {
-  countdownNumberEl.textContent = 5;
-  countdown = 5;
+  countdown = 60;
   n1 = 0;
   clearInterval(timerRef);
   startTimer();

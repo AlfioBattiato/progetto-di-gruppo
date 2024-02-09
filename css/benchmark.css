@@ -66,13 +66,13 @@ body {
   margin-block: 4rem;
   text-align: center;
 }
-.benchmark main h1 {
-  font-weight: 400;
-  font-size: 1.5rem;
-}
+
 .domanda {
   max-width: 80%;
   margin: auto;
+  text-align: center;
+  font-size: 1.5rem;
+
 }
 .btn-container {
   text-align: center;
@@ -94,7 +94,7 @@ body {
   /* box-shadow: 0px -1px 1px 1px #FFFFFF; */
 }
 
-.benchmark footer {
+.benchmarkFooter {
   display: flex;
   gap: 10px;
   letter-spacing: 1px;
@@ -236,7 +236,7 @@ button[type="submit"]:hover {
 
 /* PAGINA SCELTA LIVELLO DI DIFFICOLTà */
 
-.titoloSetup {
+/* .titoloSetup {
   text-align: center;
   font-family: "Outfit", sans-serif;
   font-size: 42px;
@@ -344,5 +344,5 @@ input[type="radio"] {
   width: 17px;
   height: 17px;
   background-color: #c2128dee; /* colore del pallino selezionato */
-  border-radius: 0%;
-}
+  /* border-radius: 0%;
+} */

@@ -86,11 +86,4 @@ invia.addEventListener("click", function () {
   parteSottostante.style.marginTop = "200px";
 });
 
-/* const startDiff = document.getElementById("btn");
-const difficolta = document.getElementsByClassName("difficolta")[0];
-const alfio = document.getElementsByClassName("benchmark")[0];
-startDiff.addEventListener("click", function () {
-  difficolta.style.display = "none";
-  alfio.style.display = "block";
-});
- */
+

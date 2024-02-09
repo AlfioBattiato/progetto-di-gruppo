@@ -18,7 +18,7 @@ body {
 }
 /* /////////////////////////////////////////// */
 .benchmark {
-  display: block;
+  display: none;
 }
 .benchmark > :first-child {
   display: flex;
@@ -34,7 +34,8 @@ body {
 .circle {
   content: "";
   background: conic-gradient(#886192 100%, #00ffff 0%) border-box;
-  -webkit-mask: /*4*/ conic-gradient(#fff 0 0) padding-box, conic-gradient(#fff 0 0);
+  -webkit-mask: /*4*/ conic-gradient(#fff 0 0) padding-box,
+    conic-gradient(#fff 0 0);
   -webkit-mask-composite: xor; /*5'*/
   mask-composite: exclude; /*5*/
   border: 10px solid transparent;
@@ -90,7 +91,6 @@ body {
   color: white;
   margin: 0.5rem;
   border-radius: 25px;
-  /* box-shadow: 0px -1px 1px 1px #FFFFFF; */
 }
 
 .benchmarkFooter {
@@ -235,7 +235,7 @@ button[type="submit"]:hover {
 
 /* PAGINA SCELTA LIVELLO DI DIFFICOLTà */
 
-/* .titoloSetup {
+.titoloSetup {
   text-align: center;
   font-family: "Outfit", sans-serif;
   font-size: 42px;
@@ -280,68 +280,48 @@ button[type="submit"]:hover {
 button:hover {
   background-color: #00eeff;
 }
-.easy {
-  width: 8rem;
-  text-align: center;
-  border: 2px solid #c2128d;
-  padding: 0.2rem;
-}
-.easy:hover {
-  color: rgb(83, 218, 83);
-  cursor: pointer;
-}
-.medium {
-  width: 8rem;
-  text-align: center;
-  border: 2px solid #c2128d;
-  padding: 0.2rem;
-}
-.medium:hover {
-  color: rgb(244, 244, 60);
-  cursor: pointer;
-}
+.easy,
+.medium,
 .difficult {
+  border: 2px solid #c2128d65;
+
   width: 8rem;
   text-align: center;
-  border: 2px solid #c2128d;
   padding: 0.2rem;
 }
+.easy:hover,
+.medium:hover,
 .difficult:hover {
-  color: rgb(253, 25, 25);
+  border: 2px solid #c2128d;
   cursor: pointer;
 }
-.ten {
-  width: 8rem;
-  text-align: center;
-  border: 2px solid #c2128d;
-  padding: 0.2rem;
-}
-.twenty {
-  width: 8rem;
-  text-align: center;
-  border: 2px solid #c2128d;
-  padding: 0.2rem;
-}
+
+.ten,
+.twenty,
 .thirty {
   width: 8rem;
   text-align: center;
-  border: 2px solid #c2128d;
+  border: 2px solid #c2128d65;
   padding: 0.2rem;
 }
+.ten:hover,
+.twenty:hover,
+.thirty:hover {
+  border: 2px solid #c2128d;
+}
+
 input[type="radio"] {
+  display: none;
+  /* border: 1px solid; */
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   width: 20px;
   height: 20px;
   border-radius: 0%;
-  border: 2px solid #c2128d;
 }
-[type="radio"]:checked::before {
-  content: "";
-  display: block;
-  width: 17px;
-  height: 17px;
-  background-color: #c2128dee; /* colore del pallino selezionato */
-/* border-radius: 0%;
-} */
+.viola{
+  border: 2px solid #c2128d;
+  color: #c2128d;
+
+}

@@ -1,122 +1,118 @@
-const questions = [
-  {
-    category: "Science: Computers",
-    type: "multiple",
-    difficulty: "easy",
-    question: "What does CPU stand for?",
-    correct_answer: "Central Processing Unit",
-    incorrect_answers: [
-      "Central Process Unit",
-      "Computer Personal Unit",
-      "Central Processor Unit",
-    ],
-  },
-  {
-    category: "Science: Computers",
-    type: "multiple",
-    difficulty: "easy",
-    question:
-      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
-    correct_answer: "Final",
-    incorrect_answers: ["Static", "Private", "Public"],
-  },
-  {
-    category: "Science: Computers",
-    type: "boolean",
-    difficulty: "easy",
-    question: "The logo for Snapchat is a Bell.",
-    correct_answer: "False",
-    incorrect_answers: ["True"],
-  },
-  {
-    category: "Science: Computers",
-    type: "boolean",
-    difficulty: "easy",
-    question:
-      "Pointers were not used in the original C programming language; they were added later on in C++.",
-    correct_answer: "False",
-    incorrect_answers: ["True"],
-  },
-  {
-    category: "Science: Computers",
-    type: "multiple",
-    difficulty: "easy",
-    question:
-      "What is the most preferred image format used for logos in the Wikimedia database?",
-    correct_answer: ".svg",
-    incorrect_answers: [".png", ".jpeg", ".gif"],
-  },
-  {
-    category: "Science: Computers",
-    type: "multiple",
-    difficulty: "easy",
-    question: "In web design, what does CSS stand for?",
-    correct_answer: "Cascading Style Sheet",
-    incorrect_answers: [
-      "Counter Strike: Source",
-      "Corrective Style Sheet",
-      "Computer Style Sheet",
-    ],
-  },
-  {
-    category: "Science: Computers",
-    type: "multiple",
-    difficulty: "easy",
-    question:
-      "What is the code name for the mobile operating system Android 7.0?",
-    correct_answer: "Nougat",
-    incorrect_answers: ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
-  },
-  {
-    category: "Science: Computers",
-    type: "multiple",
-    difficulty: "easy",
-    question: "On Twitter, what is the character limit for a Tweet?",
-    correct_answer: "140",
-    incorrect_answers: ["120", "160", "100"],
-  },
-  {
-    category: "Science: Computers",
-    type: "boolean",
-    difficulty: "easy",
-    question: "Linux was first created as an alternative to Windows XP.",
-    correct_answer: "False",
-    incorrect_answers: ["True"],
-  },
-  {
-    category: "Science: Computers",
-    type: "multiple",
-    difficulty: "easy",
-    question:
-      "Which programming language shares its name with an island in Indonesia?",
-    correct_answer: "Java",
-    incorrect_answers: ["Python0", "C1", "Jakarta2"],
-  },
-];
+let difficilissimi = [];
+
+let numeroDifficolta;
+let numeroLunghezza;
+let indiceD = 0; //variabile che serve per scalare man mano il mio array di oggetti
+
+
+difficilissimi= async function fetchQuestions(e,n) {
+  return await fetch(  `https://opentdb.com/api.php?amount=${e}&category=18&difficulty=${n}`)
+    .then((response) => {
+      console.log(response);
+      if (response.ok) {
+        return response.json();
+      }
+
+      return Promise.reject(response);
+    })
+    .catch((error) => (document.body.textContent = error.status));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+////////////////////js difficult////////////////////////////////////////////////////////
+const startDiff = document.getElementById("btn");
+const difficolta = document.getElementsByClassName("difficolta")[0];
+startDiff.addEventListener("click", function () {
+  fetchQuestions(numeroLunghezza, numeroDifficolta);
+  console.log(difficilissimi);
+  // createQuestion();
+  difficolta.style.display = "none";
+  alfio.style.display = "block";
+});
+///////////////////////////////////////////////////////////////
+//funzioni radio
+
+////////////////////livello difficolta////////////////////////
+let radioEasy = document.querySelector("#difEasy");
+let radioMedium = document.querySelector("#difMedium");
+let radioHard = document.querySelector("#difHard");
+
+let labelEasy = document.getElementsByClassName("easy")[0];
+let labelMedium = document.getElementsByClassName("medium")[0];
+let labelHard = document.getElementsByClassName("difficult")[0];
+//////////////////numero domande/////////////////
+let radioN10 = document.querySelector("#radioD");
+let radioN20 = document.querySelector("#radioV");
+let radioN30 = document.querySelector("#radioT");
+
+let dieci = document.getElementsByClassName("ten")[0];
+let venti = document.getElementsByClassName("twenty")[0];
+let trenta = document.getElementsByClassName("thirty")[0];
+
+let arrayRadioDifficult = [radioEasy, radioMedium, radioHard];
+let arrayLabelDifficult = [labelEasy, labelMedium, labelHard];
+let arrayRadioN = [radioN10, radioN20, radioN30];
+let arrayLabelN = [dieci, venti, trenta];
+
+function pulisciColore(valore) {
+  valore.forEach((e) => {
+    e.classList.remove("viola");
+  });
+}
+
+arrayLabelDifficult.forEach((e) => {
+  e.onclick = function () {
+    pulisciColore(arrayLabelDifficult);
+    numeroDifficolta = e.textContent;
+    e.classList.add("viola");
+  };
+});
+
+arrayLabelN.forEach((e) => {
+  e.onclick = function () {
+    pulisciColore(arrayLabelN);
+    numeroLunghezza = e.textContent;
+    e.classList.add("viola");
+  };
+});
+
+
+
+// async function fetchQuestions(e, n) {
+//   const response = await fetch(
+//     `https://opentdb.com/api.php?amount=${e}&category=18&difficulty=${n}`
+//   );
+//   const data = await response.json();
+//   const questions = data.results;
+//   // Push dell'array di domande all'interno dell'array vuoto
+//   difficilissimi.push(...questions);
+// }
+//////////////////////////////////////////////////////////
 
 let domanda = document.getElementsByClassName("domanda")[0];
 let divRisposte = document.getElementsByClassName("btn-container")[0];
-let indiceD = 0; //variabile che serve per scalare man mano il mio array di oggetti
 let punteggioCorrette = 0;
 let punteggioSbagliate = 0;
 let nPagina = document.getElementsByClassName("attuale")[0];
+const marco = document.getElementsByClassName("result")[0];
+const alfio = document.getElementsByClassName("benchmark")[0];
 
 function createQuestion() {
   let random = Math.floor(
-    Math.random() * questions[indiceD].incorrect_answers.length
+    Math.random() * difficilissimi[indiceD].incorrect_answers.length
   ); //crea un numero casuale da usare come indice che andremo ad usare nella riga sotto
 
-  let arrayRisposte = questions[indiceD].incorrect_answers.toSpliced(
+  let arrayRisposte = difficilissimi[indiceD].incorrect_answers.toSpliced(
     random,
     0,
-    questions[indiceD].correct_answer
+    difficilissimi[indiceD].correct_answer
   ); //creo un array di tutte le risposte con quella corretta messa casualmente prendendo il numero ramdom come indice dove inserirla
 
   //   console.log(arrayRisposte);
   divRisposte.innerHTML = ""; // Pulisce il contenitore prima di aggiungere nuovi bottoni
 
   for (let i = 0; i < arrayRisposte.length; i++) {
-    domanda.innerText = questions[indiceD].question;
+    domanda.innerText = difficilissimi[indiceD].question;
     let btn = document.createElement("button");
     divRisposte.appendChild(btn);
     btn.innerText = arrayRisposte[i];
@@ -126,8 +122,8 @@ function createQuestion() {
       restartTimer();
 
       // Passa alla prossima domanda se ce ne sono ancora
-      if (indiceD < questions.length) {
-        if (this.textContent === questions[indiceD].correct_answer) {
+      if (indiceD < difficilissimi.length) {
+        if (this.textContent === difficilissimi[indiceD].correct_answer) {
           punteggioCorrette++;
         } else {
           punteggioSbagliate++;
@@ -143,8 +139,6 @@ function createQuestion() {
     };
   }
 }
-
-createQuestion();
 
 //funzione timer//////////////////////////////////////////////////////////////////////////////
 let timerRef;
@@ -168,11 +162,11 @@ function startTimer() {
         indiceD++;
         numeroPagina();
         restartTimer();
-      }else {
+      } else {
         clearInterval(timerRef);
-        sbloccaResultPage()
+        sbloccaResultPage();
       }
-    } 
+    }
 
     n1 = n1 + step < 100 ? n1 + step : 0;
     countdown--;
@@ -189,8 +183,6 @@ function restartTimer() {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 function sbloccaResultPage() {
-  const marco = document.getElementsByClassName("result")[0];
-  const alfio = document.getElementsByClassName("benchmark")[0];
   marco.style.display = "block";
   alfio.style.display = "none";
 

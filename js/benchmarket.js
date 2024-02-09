@@ -5,7 +5,11 @@ const questions = [
     difficulty: "easy",
     question: "What does CPU stand for?",
     correct_answer: "Central Processing Unit",
-    incorrect_answers: ["Central Process Unit", "Computer Personal Unit", "Central Processor Unit"],
+    incorrect_answers: [
+      "Central Process Unit",
+      "Computer Personal Unit",
+      "Central Processor Unit",
+    ],
   },
   {
     category: "Science: Computers",
@@ -28,7 +32,8 @@ const questions = [
     category: "Science: Computers",
     type: "boolean",
     difficulty: "easy",
-    question: "Pointers were not used in the original C programming language; they were added later on in C++.",
+    question:
+      "Pointers were not used in the original C programming language; they were added later on in C++.",
     correct_answer: "False",
     incorrect_answers: ["True"],
   },
@@ -36,7 +41,8 @@ const questions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "What is the most preferred image format used for logos in the Wikimedia database?",
+    question:
+      "What is the most preferred image format used for logos in the Wikimedia database?",
     correct_answer: ".svg",
     incorrect_answers: [".png", ".jpeg", ".gif"],
   },
@@ -46,13 +52,18 @@ const questions = [
     difficulty: "easy",
     question: "In web design, what does CSS stand for?",
     correct_answer: "Cascading Style Sheet",
-    incorrect_answers: ["Counter Strike: Source", "Corrective Style Sheet", "Computer Style Sheet"],
+    incorrect_answers: [
+      "Counter Strike: Source",
+      "Corrective Style Sheet",
+      "Computer Style Sheet",
+    ],
   },
   {
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "What is the code name for the mobile operating system Android 7.0?",
+    question:
+      "What is the code name for the mobile operating system Android 7.0?",
     correct_answer: "Nougat",
     incorrect_answers: ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
   },
@@ -76,13 +87,14 @@ const questions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "Which programming language shares its name with an island in Indonesia?",
+    question:
+      "Which programming language shares its name with an island in Indonesia?",
     correct_answer: "Java",
     incorrect_answers: ["Python0", "C1", "Jakarta2"],
   },
 ];
 
-let domanda = document.getElementsByClassName("bolder")[0];
+let domanda = document.getElementsByClassName("domanda")[0];
 let divRisposte = document.getElementsByClassName("btn-container")[0];
 let indiceD = 0; //variabile che serve per scalare man mano il mio array di oggetti
 let punteggioCorrette = 0;
@@ -90,76 +102,43 @@ let punteggioSbagliate = 0;
 let nPagina = document.getElementsByClassName("attuale")[0];
 
 function createQuestion() {
-  let random = Math.floor(Math.random() * questions[indiceD].incorrect_answers.length); //crea un numero casuale da usare come indice che andremo ad usare nella riga sotto
+  let random = Math.floor(
+    Math.random() * questions[indiceD].incorrect_answers.length
+  ); //crea un numero casuale da usare come indice che andremo ad usare nella riga sotto
 
-  let arrayRisposte = questions[indiceD].incorrect_answers.toSpliced(random, 0, questions[indiceD].correct_answer); //creo un array di tutte le risposte con quella corretta messa casualmente prendendo il numero ramdom come indice dove inserirla
+  let arrayRisposte = questions[indiceD].incorrect_answers.toSpliced(
+    random,
+    0,
+    questions[indiceD].correct_answer
+  ); //creo un array di tutte le risposte con quella corretta messa casualmente prendendo il numero ramdom come indice dove inserirla
 
   //   console.log(arrayRisposte);
-  domanda.innerText = questions[indiceD].question;
-
   divRisposte.innerHTML = ""; // Pulisce il contenitore prima di aggiungere nuovi bottoni
 
   for (let i = 0; i < arrayRisposte.length; i++) {
+    domanda.innerText = questions[indiceD].question;
     let btn = document.createElement("button");
     divRisposte.appendChild(btn);
     btn.innerText = arrayRisposte[i];
 
     btn.onclick = function () {
-      if (nPagina.textContent === "9") {
-        nPagina.style.color = "#ba008b";
-        nPagina.textContent++;
-      } else {
-        nPagina.textContent++;
-      }
+      indiceD++;
+      restartTimer();
 
-      n1 = 0;
-      countdown = 0;
-
-      if (this.textContent === questions[indiceD].correct_answer) {
-        /*  window.alert("Risposta Esatta Continua Cosi 💪") */
-        punteggioCorrette++;
-      } else {
-        /* window.alert(`"Puoi fare di meglio Ragazzo!😒"
-        "la risposta corretta è : "${questions[indiceD].correct_answer}`) */
-        punteggioSbagliate++;
-      }
       // Passa alla prossima domanda se ce ne sono ancora
-      if (indiceD < questions.length - 1) {
-        createQuestion();
+      if (indiceD < questions.length) {
+        if (this.textContent === questions[indiceD].correct_answer) {
+          punteggioCorrette++;
+        } else {
+          punteggioSbagliate++;
+        }
+        setTimeout(() => {
+          createQuestion();
+          numeroPagina();
+        }, 1000);
       } else {
         // Se non ci sono più domande, fai qualcosa qui, ad esempio visualizza un messaggio di fine gioco
-        const marco = document.getElementsByClassName("result")[0];
-        const alfio = document.getElementsByClassName("benchmark")[0];
-        marco.style.display = "block";
-        alfio.style.display = "none";
-        //questo è per gestire il grafico del result
-        const data = {
-          datasets: [
-            {
-              borderWidth: 0,
-              label: "My First Dataset",
-              data: [punteggioSbagliate, punteggioCorrette],
-              // data: [10, 90],
-              backgroundColor: ["#C2128D", "#00FFFF"],
-              hoverOffset: 10,
-              weight: 2,
-              cutout: "70%",
-              hoverOffset: 0,
-            },
-          ],
-        };
-        const prova = document.getElementById("grafico");
-        new Chart(prova, {
-          type: "doughnut",
-          data: data,
-        });
-
-        // console.log("Fine del gioco");
-        //funzionalità per cambiare le scritte della pagina result
-        const positivo = document.getElementById("risultatoPositivo");
-        const negativo = document.getElementById("risultatoNegativo");
-        negativo.textContent = punteggioSbagliate * 10 + "%";
-        positivo.textContent = punteggioCorrette * 10 + "%";
+        sbloccaResultPage();
       }
     };
   }
@@ -169,7 +148,7 @@ createQuestion();
 
 //funzione timer//////////////////////////////////////////////////////////////////////////////
 let timerRef;
-let countdown = 60;
+let countdown = 5;
 let step = 100 / countdown; //passo da fare il colore
 let n1 = 0;
 
@@ -181,43 +160,94 @@ function startTimer() {
     circle.style.background = `conic-gradient(#00ffff ${n1}%,  #886192 ${0}%) border-box`;
     countdownNumberEl.textContent = countdown;
 
-    // countdown = --countdown <= 0 ? (console.log(countdown), indiceD++,createQuestion(),restartTimer(),5) : (countdown);
-    if (indiceD < 9) {
-      if (countdown === 0) {
-        indiceD++; //mi permette di accedere all indice del nostro array di oggetti
-        createQuestion(); //creiamo le domande
+    if (countdown === 0) {
+      if (indiceD < 10) {
+        punteggioSbagliate++;
+        createQuestion();
+        console.log(punteggioSbagliate);
+        indiceD++;
+        numeroPagina();
         restartTimer();
-        countdownNumberEl.textContent = 60;
-        countdown = 60;
+      }else {
+        clearInterval(timerRef);
+        sbloccaResultPage()
       }
-      n1 = n1 + step < 100 ? n1 + step : 0;
-      countdown--;
-    }
+    } 
+
+    n1 = n1 + step < 100 ? n1 + step : 0;
+    countdown--;
   }, 1000);
 }
 startTimer();
 
 function restartTimer() {
+  countdownNumberEl.textContent = 5;
+  countdown = 5;
+  n1 = 0;
   clearInterval(timerRef);
   startTimer();
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
+function sbloccaResultPage() {
+  const marco = document.getElementsByClassName("result")[0];
+  const alfio = document.getElementsByClassName("benchmark")[0];
+  marco.style.display = "block";
+  alfio.style.display = "none";
 
-// funzione che cambia le paginette in basso su benchmark
-//            <h1 id="risultatoNegativo">40%</h1>
-// cambiamento testo in base al risultato ottenuto
-const messaggio = document.getElementById("esito");
-const scuse = document.getElementById("scuse");
-const articolo = document.getElementById("article");
+  //questo è per gestire il grafico del result
 
-/* if (punteggioCorrette > punteggioSbagliate) {
-  messaggio.textContent = "You passed the exam";
-  scuse.textContent = "Congratulation";
-  articolo.textContent =
-    " We'll send you the certificate in few minutes. Check yout email (including promotions / spam folder)";
-} else {
-  messaggio.textContent = "You failed the exam";
-  scuse.textContent = "I'm sorry but";
-  articolo.textContent = "I'm sorry, but you need a bit more study.";
-} */
+  const data = {
+    datasets: [
+      {
+        borderWidth: 0,
+        label: "My First Dataset",
+        data: [punteggioSbagliate, punteggioCorrette],
+        backgroundColor: ["#C2128D", "#00FFFF"],
+        hoverOffset: 10,
+        weight: 2,
+        cutout: "70%",
+        hoverOffset: 0,
+      },
+    ],
+  };
+  const prova = document.getElementById("grafico");
+  new Chart(prova, {
+    type: "doughnut",
+    data: data,
+  });
+
+  // console.log("Fine del gioco");
+  //funzionalità per cambiare le scritte della pagina result
+  const positivo = document.getElementById("risultatoPositivo");
+  const negativo = document.getElementById("risultatoNegativo");
+  negativo.textContent = punteggioSbagliate * 10 + "%";
+  positivo.textContent = punteggioCorrette * 10 + "%";
+
+  // cambiamento testo in base al risultato ottenuto
+  const messaggio = document.getElementById("esito");
+  const scuse = document.getElementById("scuse");
+  const articolo = document.getElementById("article");
+
+  if (punteggioCorrette > 5) {
+    console.log(punteggioCorrette);
+    messaggio.textContent = "You passed the exam";
+    scuse.textContent = "Congratulation";
+    articolo.textContent =
+      " We'll send you the certificate in few minutes. Check yout email (including promotions / spam folder)";
+  } else {
+    messaggio.textContent = "You failed the exam";
+    scuse.textContent = "I'm sorry but";
+    articolo.textContent = "I'm sorry, but you need a bit more study.";
+  }
+}
+//////////////////////////////////////
+//funzione cambia numero pagina
+function numeroPagina() {
+  if (nPagina.textContent === "9") {
+    nPagina.style.color = "#ba008b";
+    nPagina.textContent++;
+  } else {
+    nPagina.textContent++;
+  }
+}

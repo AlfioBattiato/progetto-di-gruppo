@@ -12,19 +12,17 @@ const positivo = document.getElementById("risultatoPositivo");
 const negativo = document.getElementById("risultatoNegativo");
 let nPaginaStart = document.getElementsByClassName("attuale")[0];
 let nPaginaEnd = document.getElementsByClassName("off")[0];
-
-/////////////////////////////////////////////////////////////////////////////////////////
-////////////////////js difficult////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////        js difficult       /////////////////////////////////////////////
 const startDiff = document.getElementById("btn");
 const difficolta = document.getElementsByClassName("difficolta")[0];
 let numeroDomande;
 let difficoltaDomande;
 startDiff.addEventListener("click", function () {
-  // Chiamata asincrona alla funzione fetchQuestions e gestione dei dati restituiti
+  /// Chiamata asincrona alla funzione fetchQuestions e gestione dei dati restituiti
   (async () => {
     const questions = await fetchQuestions(numeroDomande, difficoltaDomande);
     nPaginaEnd.textContent = "/ " + questions.length;
-
     function createQuestion() {
       let random = Math.floor(
         Math.random() * questions[indiceD].incorrect_answers.length
@@ -35,13 +33,11 @@ startDiff.addEventListener("click", function () {
         questions[indiceD].correct_answer
       ); //creo un array di tutte le risposte con quella corretta messa casualmente prendendo il numero ramdom come indice dove inserirla
       divRisposte.innerHTML = ""; // Pulisce il contenitore prima di aggiungere nuovi bottoni
-
       for (let i = 0; i < arrayRisposte.length; i++) {
         domanda.innerText = questions[indiceD].question;
         let btn = document.createElement("button");
         divRisposte.appendChild(btn);
         btn.innerText = arrayRisposte[i];
-
         btn.onclick = function () {
           // Passa alla prossima domanda se ce ne sono ancora
           if (indiceD < questions.length - 1) {
@@ -62,19 +58,17 @@ startDiff.addEventListener("click", function () {
             } else {
               punteggioSbagliate++;
             }
-            // Se non ci sono più domande, fai qualcosa qui, ad esempio visualizza un messaggio di fine gioco
+            //Se non ci sono più domande, fai qualcosa qui, ad esempio visualizza un messaggio di fine gioco
             sbloccaResultPage();
           }
         };
       }
     }
-
-    //funzione timer//////////////////////////////////////////////////////////////////////////////
+    //funzione timer/////////////////////////////////////////////////////////////////////////////////
     let timerRef;
     let countdown = 60;
     let step = 100 / countdown; //passo da fare il colore
     let n1 = 0;
-
     function startTimer() {
       timerRef = setInterval(function () {
         circle.style.background = `conic-gradient(#00ffff ${n1}%,  #886192 ${0}%) border-box`;
@@ -93,26 +87,22 @@ startDiff.addEventListener("click", function () {
             sbloccaResultPage();
           }
         }
-
         n1 = n1 + step < 100 ? n1 + step : 0;
         countdown--;
       }, 1000);
     }
-
     function restartTimer() {
       countdown = 60;
       n1 = 0;
       clearInterval(timerRef);
       startTimer();
     }
-
     ///////////////////////////////////////////////////////////////////////////////////////////////
     function sbloccaResultPage() {
       marco.style.display = "block";
       alfio.style.display = "none";
 
-      //questo è per gestire il grafico del result
-
+      /////questo è per gestire il grafico del result
       const data = {
         datasets: [
           {
@@ -168,7 +158,7 @@ startDiff.addEventListener("click", function () {
         articolo.textContent = "I'm sorry, but you need a bit more study.";
       }
     }
-    //////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
     //funzione cambia numero pagina
     function numeroPagina() {
       if (nPaginaStart.textContent === questions.length) {
@@ -186,9 +176,9 @@ startDiff.addEventListener("click", function () {
     console.log(questions);
   })();
 });
-///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //funzioni radio
-////////////////////livello difficolta////////////////////////
+////////////////////livello difficolta//////////////////////////////////////////////////////////////////////
 let radioEasy = document.querySelector("#difEasy");
 let radioMedium = document.querySelector("#difMedium");
 let radioHard = document.querySelector("#difHard");
@@ -196,7 +186,7 @@ let radioHard = document.querySelector("#difHard");
 let labelEasy = document.getElementsByClassName("easy")[0];
 let labelMedium = document.getElementsByClassName("medium")[0];
 let labelHard = document.getElementsByClassName("difficult")[0];
-//////////////////numero domande/////////////////
+//////////////////numero domande////////////////////////////////////////////////////////////////////////////
 let radioN10 = document.querySelector("#radioD");
 let radioN20 = document.querySelector("#radioV");
 let radioN30 = document.querySelector("#radioT");
@@ -231,8 +221,7 @@ arrayLabelN.forEach((e) => {
     e.classList.add("viola");
   };
 });
-///////////////////////
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const fetchQuestions = async (n, d) => {
   try {
     const response = await fetch(

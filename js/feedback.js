@@ -24,16 +24,13 @@ divStars.forEach((el, index) => {
 
       //aggiunta della faccina
       if (starValore <= 4) {
-        // console.log("pessimo");
         img.src = "../assets/faces/sad-svgrepo-com.svg";
 
         divEmo.appendChild(img);
       } else if (starValore > 4 && starValore < 8) {
-        // console.log("buono");
         img.src = "../assets/faces/straight-svgrepo-com.svg";
         divEmo.appendChild(img);
       } else if (starValore >= 8) {
-        // console.log("ottimo");
         img.src = "../assets/faces/smile-svgrepo-com.svg";
         divEmo.appendChild(img);
       }

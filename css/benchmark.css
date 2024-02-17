@@ -106,7 +106,7 @@ body {
   background-color: #ba008b;
 }
 
-/************************marco page********************* */
+/************************            marco page               ********************* */
 .result {
   display: none;
 }
@@ -250,7 +250,6 @@ button[type="submit"]:hover {
   padding-top: 1.2rem;
   display: flex;
   flex-wrap: wrap;
-
   justify-content: center;
   gap: 1.5rem;
 }
@@ -265,7 +264,7 @@ button[type="submit"]:hover {
 .container-btn {
   text-align: center;
   padding-top: 3.8rem;
-}
+} 
 .difficolta button {
   background-color: #00ffff;
   padding: 0.8rem;
@@ -278,7 +277,7 @@ button[type="submit"]:hover {
   border: none;
   border-radius: 1px;
 }
-button:hover {
+.difficolta button:hover {
   background-color: #00eeff;
   box-shadow: -0px 2px 10px 9px #00ffff57;
 

@@ -22,6 +22,7 @@ startDiff.addEventListener("click", function () {
   /// Chiamata asincrona alla funzione fetchQuestions e gestione dei dati restituiti
   (async () => {
     const questions = await fetchQuestions(numeroDomande, difficoltaDomande);
+
     nPaginaEnd.textContent = "/ " + questions.length;
     function createQuestion() {
       let random = Math.floor(
@@ -77,9 +78,9 @@ startDiff.addEventListener("click", function () {
         if (countdown === 0) {
           if (indiceD < 10) {
             punteggioSbagliate++;
+            indiceD++;
             createQuestion();
             console.log(punteggioSbagliate);
-            indiceD++;
             numeroPagina();
             restartTimer();
           } else {
@@ -173,7 +174,7 @@ startDiff.addEventListener("click", function () {
     startTimer();
     difficolta.style.display = "none";
     alfio.style.display = "block";
-    console.log(questions);
+    // console.log(questions);
   })();
 });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -239,3 +240,5 @@ const fetchQuestions = async (n, d) => {
     return []; // Oppure, puoi lanciare l'errore con 'throw error;' per gestirlo altrove
   }
 };
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////

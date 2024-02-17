@@ -70,11 +70,11 @@ ul li {
   font-weight: 900;
   cursor: pointer;
   width: 12rem;
-  box-shadow: -0px 2px 10px 9px #00ffff57;
   border: none;
   border-radius: 1px;
   opacity: 0.5;
 }
+
 .txt {
   color: #0b113b;
   font-weight: 800;
@@ -84,7 +84,8 @@ ul li {
 
 .allineo {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
+  gap: 5rem;
   align-items: center;
   padding-top: 2rem;
 }
@@ -136,47 +137,8 @@ a {
   border: 2.5px solid #ffffff;
   transition: 0.2s linear;
 }
-.checkbox-btn input:checked ~ .checkmark {
-  background-color: transparent;
-}
-
-.checkmark:after {
-  content: "";
-  position: absolute;
-  visibility: hidden;
-  opacity: 0;
-  left: 50%;
-  top: 40%;
-  width: 10px;
-  height: 14px;
-  border: 2px solid #0ea021;
-  filter: drop-shadow(0px 0px 10px #0ea021);
-  border-width: 0 2.5px 2.5px 0;
-  transition: 0.2s linear;
-  transform: translate(-50%, -50%) rotate(-90deg) scale(0.2);
-}
-
-.checkbox-btn input:checked ~ .checkmark:after {
-  visibility: visible;
-  opacity: 1;
-  transform: translate(-50%, -50%) rotate(0deg) scale(1);
-  animation: pulse 1s ease-in;
-}
-
-.checkbox-btn input:checked ~ .checkmark {
-  transform: rotate(45deg);
-  border: none;
-}
 .btn {
   margin-top: 70px;
   margin-left: 40px;
 }
-@keyframes pulse {
-  0%,
-  100% {
-    transform: translate(-50%, -50%) rotate(0deg) scale(1);
-  }
-  50% {
-    transform: translate(-50%, -50%) rotate(0deg) scale(1.6);
-  }
-}
+
